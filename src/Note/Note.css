@@ -1,0 +1,45 @@
+.note {
+    --note-height: 88px;
+    height: var(--note-height);
+    margin-bottom: 8px;
+    max-width: 380px;
+    padding: 8px 0 8px 8px;
+    position: relative;
+    border: 1px solid black;
+    border-radius: 3px
+}
+
+.note-title {
+    font-size: 20px;
+    margin: 0;
+    max-width: 80%;
+    min-height: 24px;
+    
+}
+
+.note-delete {
+    font-size: 12px;
+    position: relative;
+    float: right;
+    bottom: 8px;
+
+}
+
+.note-modified {
+    font-size: 14px;
+    bottom: 8px;
+    position: absolute;
+
+}
+
+.note a {
+    text-decoration: none;
+    color: black;
+    padding: 5px
+}
+
+.note a:hover {
+    background-color: lightgray;
+    border-radius: 2px;
+}
+

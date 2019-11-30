@@ -1,0 +1,31 @@
+.App {
+    display: grid;
+    grid-template-areas: 'sidebar header' 'sidebar main';
+    grid-template-columns: 1fr 2.3fr;
+    grid-template-rows: 120px 1fr;
+    min-height: 100vh;
+}
+
+.App-nav {
+    grid-area: sidebar;
+    height: 100vh;
+    overflow: auto;
+}
+
+.App-header {
+    grid-area: header;
+    padding-left: 16px;
+    padding-top: 32px;
+    text-shadow: 2px 1px 2px black;
+
+}
+
+.App-main {
+    grid-area: main;
+    height: calc(100vh - 120px);
+    overflow: auto
+}
+
+.App-header a {
+    color: black;
+}

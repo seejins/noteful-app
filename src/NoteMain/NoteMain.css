@@ -1,0 +1,9 @@
+.NoteMain {
+    height: 100%;
+    padding: 10px;
+    width: 100%;
+}
+
+.Note-Contents { 
+   max-width: 380px;
+}

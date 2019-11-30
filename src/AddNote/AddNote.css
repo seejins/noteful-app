@@ -1,0 +1,38 @@
+.AddNote {
+    max-width: 332px;
+    padding: 16px;
+}
+
+.AddNolder h2 {
+    margin-left: 16px;
+}
+
+input, textarea, select {
+    font-size: 14px;
+    padding: 8px;
+    width: 300px;
+}
+
+.field {
+    margin-bottom: 16px;
+}
+
+.buttons {
+    margin-top: 26px;
+}
+
+.button {
+    border-radius: 4px;
+    border: 1px solid black;
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 8px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.button:hover {
+    background-color: black;
+    color: white;
+}

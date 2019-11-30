@@ -1,0 +1,21 @@
+.NoteSidebar {
+    list-style-type: none;
+    margin: 130px 0 0;
+    padding: 0;
+}
+
+.NoteSidebar-back-button {
+    color: black;
+    font-size: 20px;
+    margin: 0 0 8px auto;
+    padding: 8px 16px;
+    text-decoration: none;
+    border: 0;
+    max-width: auto;
+    
+}
+
+.NoteSidebar-back-button:hover {
+    background-color: black;
+    color: white;   
+}

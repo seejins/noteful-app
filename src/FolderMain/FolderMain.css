@@ -1,0 +1,13 @@
+.Notes-List ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 10px;
+}
+
+.add-note-container {
+    max-width: 380px;
+    margin: 0 10px;
+}
+
+
+
