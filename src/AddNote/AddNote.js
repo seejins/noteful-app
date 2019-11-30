@@ -53,19 +53,19 @@ class AddNote extends Component {
                         <label htmlFor='note-name-input'>
                             Name
                         </label>
-                        <input type='text' id='note-name-input' name='note-name' />
+                        <input type='text' id='note-name-input' name='note-name' aria-label="note name"/>
                     </div>
                     <div className='field'>
                         <label htmlFor='note-content'>
                             Content
                         </label>
-                        <textarea id='note-content' name='note-content' />
+                        <textarea id='note-content' name='note-content' aria-label="note contents"/>
                     </div>
                     <div className='field'>
                         <label htmlFor='note-folder-select'>
                             Folder
                         </label>
-                        <select id='note-folder-select' name='note-folder-id'>
+                        <select id='note-folder-select' name='note-folder-id' aria-label="Select folder to place note">
                             <option value={null}>...</option>
                             {folders.map(folder =>
                                 <option key={folder.id} value={folder.id}>

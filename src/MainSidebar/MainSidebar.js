@@ -23,15 +23,16 @@ class MainSidebar extends Component {
                         </li>
                     )}
 
-                    <div className='Add-folder-button-container'>
-                        <Link
-                            className='add-folder-link'
-                            to={'/add-folder'}>
-                            + Add Folder
+
+                </ul>
+                <div className='Add-folder-button-container'>
+                    <Link
+                        className='add-folder-link'
+                        to={'/add-folder'}>
+                        + Add Folder
                     </Link>
 
-                    </div>
-                </ul>
+                </div>
             </section>
         )
     }

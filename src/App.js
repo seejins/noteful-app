@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { Route, Link } from 'react-router-dom'
 import Main from './Main/Main'
 import MainSidebar from './MainSidebar/MainSidebar'
@@ -152,28 +152,30 @@ class App extends Component {
     }
 
     return (
-      <div className="App">
+      <Fragment>
+        <div className="App">
 
-        <header className="App-header">
-          <h1>
-            <Link to='/'>Noteful</Link>
-          </h1>
-        </header>
-        <NotesContext.Provider value={contextValue}>
-          <ErrorBoundary>
-          <nav className="App-nav">
-            {this.getSidebarRoute()}
-          </nav>
-          </ErrorBoundary>
+          <header className="App-header">
+            <h1>
+              <Link to='/'>Noteful</Link>
+            </h1>
+          </header>
+          <NotesContext.Provider value={contextValue}>
+            <ErrorBoundary>
+            <nav className="App-nav">
+              {this.getSidebarRoute()}
+            </nav>
+            </ErrorBoundary>
 
-          <ErrorBoundary>
-          <main className="App-main">
-            {this.getMainRoute()}
-          </main>
-          </ErrorBoundary>
+            <ErrorBoundary>
+            <main className="App-main">
+              {this.getMainRoute()}
+            </main>
+            </ErrorBoundary>
 
-        </NotesContext.Provider>
-      </div>
+          </NotesContext.Provider>
+        </div>
+      </Fragment>
     );
   }
 }
