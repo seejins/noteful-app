@@ -46,7 +46,7 @@ class FolderMain extends Component {
 }
 
 FolderMain.propTypes = {
-    match: PropType.object
+    match: PropType.object.isRequired
 }
 
 export default FolderMain

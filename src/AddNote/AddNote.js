@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import NotesContext from '../NotesContext'
 import config from '../config'
+import ValidationError from '../ValidationError'
+import PropTypes from 'prop-types'
 import './AddNote.css'
 
 
@@ -8,6 +10,23 @@ class AddNote extends Component {
     static defaultProps = {
         history: {
             push: () => { }
+        }
+    }
+
+    constructor(props) {
+        super(props) 
+        this.state = {
+            name: {
+                value: '',
+                touched: 'false',
+            },
+            content: {
+                value: '',
+                touched: 'false'
+            },
+            folder: {
+                touched: 'false'
+            }
         }
     }
 
@@ -42,31 +61,56 @@ class AddNote extends Component {
             })
     }
 
+    updateName(name) {
+        this.setState({name: {value: name, touched: true}})
+    }
+
+    updateContent(content) {
+        this.setState({content: {value: content, touched: true}})
+    }
+
+    validateNoteName() {
+        const name = this.state.name.value.trim()
+        if(name.length === 0) {
+            return 'Note name is required.'
+        } else if (name.length > 20) {
+            return 'Folder name must be less than 20 characters'
+        }
+    }
+
+    validateContent() {
+        const content = this.state.content.value.trim()
+        if(content.length === 0) {
+            return 'Note content cannot be empty.'
+        }
+    }
+
     render() {
         const { folders = [] } = this.context
-        console.log('hello', this.context)
         return (
             <section className='AddNote'>
                 <h2>Create a Note</h2>
-                <form className='note-form' action='#' onSubmit={this.handleSubmit}>
+                <form className='note-form' action='#' onSubmit={this.handleSubmit} >
                     <div className='field'>
                         <label htmlFor='note-name-input'>
                             Name
                         </label>
-                        <input type='text' id='note-name-input' name='note-name' aria-label="note name"/>
+                        <input type='text' id='note-name-input' name='note-name' aria-label="note name" onChange={e => this.updateName(e.target.value)}/>
+                        {this.state.name.touched === true && <ValidationError message={this.validateNoteName()}/>}
                     </div>
                     <div className='field'>
                         <label htmlFor='note-content'>
                             Content
                         </label>
-                        <textarea id='note-content' name='note-content' aria-label="note contents"/>
+                        <textarea id='note-content' name='note-content' aria-label="note contents" onChange={e => this.updateContent(e.target.value)}/>
+                        {this.state.content.touched === true && <ValidationError message={this.validateContent()}/>}
                     </div>
                     <div className='field'>
                         <label htmlFor='note-folder-select'>
                             Folder
                         </label>
-                        <select id='note-folder-select' name='note-folder-id' aria-label="Select folder to place note">
-                            <option value={null}>...</option>
+                        <select id='note-folder-select' name='note-folder-id' aria-label="Select folder to place note" required>
+                            <option value={null}>Select Folder</option>
                             {folders.map(folder =>
                                 <option key={folder.id} value={folder.id}>
                                     {folder.name}
@@ -75,7 +119,7 @@ class AddNote extends Component {
                         </select>
                     </div>
                     <div className='buttons'>
-                        <button type='submit' className='button'>
+                        <button type='submit' className='button' disabled={this.validateContent() || this.validateNoteName()}>
                             Add Note
                         </button>
                     </div>
@@ -85,6 +129,12 @@ class AddNote extends Component {
         )
     }
 
+}
+
+AddNote.propTypes = {
+    requiredObjectWithShape: PropTypes.shape({
+        history: PropTypes.func.isRequired
+    })
 }
 
 export default AddNote

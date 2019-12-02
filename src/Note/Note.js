@@ -38,6 +38,8 @@ class Note extends Component {
             })
     }
 
+    
+
 
     render() {
         const { name, id, modified } = this.props
@@ -65,9 +67,9 @@ class Note extends Component {
 }
 
 Note.propTypes = {
-    id: PropTypes.string,
-    name: PropTypes.string,
-    modified: PropTypes.string
+    id: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    modified: PropTypes.string.isRequired
 }
 
 
