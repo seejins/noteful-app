@@ -21,8 +21,8 @@ class App extends Component {
 
   componentDidMount() {
     Promise.all([
-      fetch(`${config.API_ENDPOINT}/notes`),
-      fetch(`${config.API_ENDPOINT}/folders`),
+      fetch(`${config.API_ENDPOINT}/api/notes`),
+      fetch(`${config.API_ENDPOINT}/api/folders`),
     ])
       .then(([notesRes, foldersRes]) => {
         if (!notesRes.ok)
@@ -86,7 +86,7 @@ class App extends Component {
           exact path='/note/:noteId'
           render={routeProps => {
             const { noteId } = routeProps.match.params
-            const note = notes.find(note => note.id === noteId)
+            const note = notes.find(note => note.id == noteId)
             return <NoteMain {...routeProps} note={note} />
           }}
         />

@@ -18,7 +18,7 @@ class FolderMain extends Component {
     render() {
         const { folderId } = this.props.match.params
         const { notes=[] } = this.context
-        const filteredNotes = notes.filter(notes => notes.folderId === folderId);
+        const filteredNotes = notes.filter(notes => notes.folder_id == folderId);
         return (
             <>
                 <ul className="Notes-List">
@@ -26,7 +26,7 @@ class FolderMain extends Component {
                         <li key={note.id}>
                             <Note
                                 id={note.id}
-                                name={note.name}
+                                name={note.note_name}
                                 modified={note.modified}
                             />
                         </li>

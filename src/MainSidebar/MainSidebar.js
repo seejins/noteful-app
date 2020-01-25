@@ -17,7 +17,7 @@ class MainSidebar extends Component {
                             <NavLink
                                 className='folder-name'
                                 to={`/folder/${folder.id}`}>
-                                {folder.name}
+                                {folder.folder_name}
                             </NavLink>
 
                         </li>

@@ -10,7 +10,7 @@ export default function NoteMain(props) {
         <section className='NoteMain'>
                 <Note
                     id={props.note.id}
-                    name={props.note.name}
+                    name={props.note.note_name}
                     modified={props.note.modified}
                 />
 
